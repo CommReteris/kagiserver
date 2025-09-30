@@ -1,8 +1,70 @@
-# Phase 1: Kagi MCP Server Extension - Implementation Architecture
+# Kagi MCP Server Extension
+
+## Introduction
+
+This Model Context Protocol (MCP) server provides integration with Kagi's search and AI capabilities. The server exposes four tools for LLM agents: web search, content summarization, AI-assisted question answering (FastGPT), and enriched search results from curated indexes.
+
+The implementation follows the MCP specification and utilizes the official Kagi API client library to deliver search functionality, text and URL summarization with multiple engine options, AI-generated responses with citations, and access to Kagi's enhanced search indexes.
+
+## Build Guide
+
+### Prerequisites
+
+- Node.js 20.x or later
+- npm 9.x or later
+- Kagi API key (obtain from your Kagi account settings)
+
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+npm install
+```
+
+### Configuration
+
+Set the required environment variable for Kagi API authentication:
+
+```bash
+export KAGI_API_KEY=your_api_key_here
+```
+
+For persistent configuration, add this export statement to your shell profile (.bashrc, .zshrc, etc.).
+
+### Build
+
+Compile the TypeScript source to JavaScript:
+
+```bash
+npm run build
+```
+
+This command:
+1. Compiles TypeScript files from `src/` to `build/`
+2. Makes the output executable via chmod
+3. Prepares the server for execution
+
+### Verification
+
+Test the server using the MCP inspector:
+
+```bash
+npm run inspector
+```
+
+The inspector provides an interactive interface for testing tool functionality and validating server responses.
+
+### Development
+
+For active development with automatic recompilation on file changes:
+
+```bash
+npm run watch
+```
 
 ## Project Context
-
-**Location**: `/home/rengo/.local/share/Roo-Code/MCP/kagiserver/src/index.ts`  
+  
 **Current Version**: 0.1.0  
 **Target Version**: 0.2.0  
 **Existing Tools**: 1 (kagi_search)  
@@ -242,6 +304,7 @@ case "kagi_enrich": {
 }
 ```
 
+<<<<<<< HEAD
 ## Code Quality Standards
 
 ### Type Safety
@@ -469,5 +532,11 @@ After Phase 1 completion, the next steps will be:
 ## References
 
 - [Kagi API Documentation](https://help.kagi.com/kagi/api/summarizer.html)
+=======
+
+## References
+
+- [Kagi API Documentation](https://help.kagi.com/kagi/api/overview.html)
+>>>>>>> a607fc3 (feat: implement kagi MCP server with search, summarize, fastgpt, and enrich tools)
 - [MCP SDK Documentation](https://modelcontextprotocol.io/)
 - [kagi-api NPM Package](https://www.npmjs.com/package/kagi-api)
