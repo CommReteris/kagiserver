@@ -1,0 +1,27 @@
+{
+  "name": "kagi",
+  "version": "0.2.0",
+  "description": "Kagi search, summarize, FastGPT, and enrich MCP server",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "kagi": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "kagi-api": "^0.0.21"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
