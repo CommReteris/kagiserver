@@ -30,9 +30,11 @@ jobs:
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
+      env:
+        VERSION: ${{ env.VERSION }}
       with:
         context: .
         push: true
         tags: |
-          ghcr.io/${{ github.repository }}/kagi-mcp:${VERSION}
+          ghcr.io/${{ github.repository }}/kagi-mcp:${{ env.VERSION }}
           ghcr.io/${{ github.repository }}/kagi-mcp:latest
