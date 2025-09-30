@@ -36,5 +36,5 @@ jobs:
         context: .
         push: true
         tags: |
-          ghcr.io/${{ github.repository }}/kagi-mcp:${{ env.VERSION }}
-          ghcr.io/${{ github.repository }}/kagi-mcp:latest
+          ghcr.io/commreteris/kagiserver/kagi-mcp:${{ env.VERSION }}
+          ghcr.io/commreteris/kagiserver/kagi-mcp:latest
