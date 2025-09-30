@@ -14,29 +14,21 @@
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "prepare": "npm run build",
     "watch": "tsc --watch",
-<<<<<<< HEAD
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
-=======
     "inspector": "npx @modelcontextprotocol/inspector build/index.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
->>>>>>> a607fc3 (feat: implement kagi MCP server with search, summarize, fastgpt, and enrich tools)
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "0.6.0",
     "kagi-api": "^0.0.21"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@types/node": "^20.11.24",
-=======
     "@jest/globals": "^30.2.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.11.24",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.4",
->>>>>>> a607fc3 (feat: implement kagi MCP server with search, summarize, fastgpt, and enrich tools)
     "typescript": "^5.3.3"
   }
 }
