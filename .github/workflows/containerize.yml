@@ -28,13 +28,22 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ghcr.io/commreteris/kagiserver/kagi-mcp
+        tags: |
+          type=ref,event=tag
+          type=raw,value=latest,enable={{is_default_branch}}
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
-      env:
-        VERSION: ${{ env.VERSION }}
       with:
         context: .
+        platforms: linux/amd64,linux/arm64
         push: true
-        tags: |
-          ghcr.io/commreteris/kagiserver/kagi-mcp:${{ env.VERSION }}
-          ghcr.io/commreteris/kagiserver/kagi-mcp:latest
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
